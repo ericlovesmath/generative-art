@@ -3,15 +3,15 @@ const ctx = canvas.getContext("2d")!;
 
 const width = 320;
 const height = 320;
-const step = 32;
-
-ctx.lineCap = 'square';
-ctx.lineWidth = 2;
-
 canvas.width = width;
 canvas.height = height;
 
 export function tiledLines() {
+
+  // Variables
+  const step = 32;
+  ctx.lineCap = 'square';
+  ctx.lineWidth = 2;
 
   /** Draws diagonal line in a random direction */
   function diagLine(x: number, y: number, width: number, height: number) {
