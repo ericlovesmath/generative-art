@@ -6,6 +6,7 @@ const height = 320;
 canvas.width = width;
 canvas.height = height;
 
+/** Creates diagonal lines in a grid pattern, facing a random direction */
 export function tiledLines() {
 
   // Variables
