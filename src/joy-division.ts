@@ -5,7 +5,6 @@ const width = 320;
 const height = 320;
 canvas.width = width;
 canvas.height = height;
-
 type Point = {
   x: number;
   y: number;
