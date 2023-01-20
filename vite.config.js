@@ -6,7 +6,6 @@ const outDir = resolve(__dirname, "dist");
 
 export default defineConfig({
   root: root,
-  base: "/visuals/",
   build: {
     outDir: outDir,
     emptyOutDir: true,
