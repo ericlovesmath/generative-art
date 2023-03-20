@@ -15,6 +15,7 @@ export default defineConfig({
         main: resolve(root, "index.html"),
         laser_simulation: resolve(root, "laser-simulation", "index.html"),
         generative_art: resolve(root, "generative-art", "index.html"),
+        canvas_objects: resolve(root, "canvas-objects", "index.html"),
       },
     },
   },
