@@ -1,6 +1,6 @@
-/** Defines point in 2D space with x and y coordinates
+/** Defines vector in 2D space with x and y coordinates
  * Contains utility functions with points */
-export class Point {
+export class Vec {
   x: number;
   y: number;
 
@@ -9,13 +9,28 @@ export class Point {
     this.y = y;
   }
 
-  /** Return Euclidean distance to another point */
-  distance(other: Point): number {
-    return Math.sqrt((this.x - other.x) ** 2 + (this.y - other.y) ** 2);
+  /** Returns Euclidean distance to another vector */
+  distance(other: Vec): number {
+    return this.subtract(other).norm();
+  }
+
+  /** Returns new vector from this to other */
+  subtract(other: Vec): Vec {
+    return new Vec(other.x - this.x, other.y - this.y);
+  }
+
+  /** Returns sum of two vectors */
+  add(other: Vec): Vec {
+    return new Vec(other.x + this.x, other.y + this.y);
+  }
+
+  /** Returns magnitude of vector */
+  norm(): number {
+    return Math.sqrt(this.x ** 2 + this.y ** 2);
   }
 
   /** Returns deep copy of Point */
   copy() {
-    return new Point(this.x, this.y);
+    return new Vec(this.x, this.y);
   }
 }

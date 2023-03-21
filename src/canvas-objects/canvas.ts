@@ -1,4 +1,4 @@
-import { Point } from "./utils";
+import { Vec } from "./utils";
 
 /** Class intended to simplify access to the Canvas API
  * Create CanvasBoard for each canvas element
@@ -8,7 +8,7 @@ class CanvasBoard {
   objects: CanvasObject[] = [];
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  mouse: Point;
+  mouse: Vec;
 
   constructor(canvas: HTMLCanvasElement, width: number, height: number) {
     this.canvas = canvas;
@@ -21,7 +21,7 @@ class CanvasBoard {
     this.canvas.style.height = `${height}px`;
     this.ctx.scale(dpr, dpr);
 
-    this.mouse = new Point(0, 0);
+    this.mouse = new Vec(0, 0);
     this.canvas.addEventListener("mouseenter", (e: MouseEvent) => {
       this.mouse.x = e.offsetX;
       this.mouse.y = e.offsetY;
