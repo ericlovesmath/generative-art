@@ -10,6 +10,26 @@
   <body>
     <header>Boids</header>
     <canvas id="canvas-board"></canvas>
+
+    <div>
+      <label for="coherance-slider">Coherance:</label>
+      <input type="range" id="coherance-slider" min="0" max="100" value="50" />
+      <output id="coherance-output">50</output>
+    </div>
+
+    <div>
+      <label for="alignment-slider">Alignment:</label>
+      <input type="range" id="alignment-slider" min="0" max="100" value="50" />
+      <output id="alignment-output">50</output>
+    </div>
+
+    <div>
+      <label for="separation-slider">Separation:</label>
+      <input type="range" id="separation-slider" min="0" max="100" value="50" />
+      <output id="separation-output">50</output>
+    </div>
+
+    <button id="restart-button">Restart</button>
   </body>
 
   <script type="module" src="./main.ts"></script>
