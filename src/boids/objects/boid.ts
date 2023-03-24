@@ -1,4 +1,4 @@
-import { Vec, mod } from "../../lib/utils";
+import { Vec } from "../../lib/utils";
 
 export class Boid {
   pos: Vec;
@@ -51,7 +51,7 @@ export class Boid {
     return avgVelocity.scale(1 / locals.length).subtract(this.vel);
   }
 
-  /** TODO: Returns steering force to avoid border */
+  /** Returns steering force to avoid border */
   borderForce(width: number, height: number): Vec {
     let PAD = this.RAD * 20;
     let steering = new Vec(0, 0);

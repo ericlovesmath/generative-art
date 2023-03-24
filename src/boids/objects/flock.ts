@@ -9,6 +9,7 @@ export class Flock extends CanvasObject {
 
   MAX_FORCE = 1;
   MAX_VELOCITY = 5;
+
   COHERANCE = 0.0003;
   ALIGNMENT = 0.05;
   SEPARATION = 0.005;
