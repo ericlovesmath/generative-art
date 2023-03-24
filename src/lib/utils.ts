@@ -31,6 +31,9 @@ export class Vec {
 
   /** Returns normalized vector of vector */
   normalized(): Vec {
+    if (this.magnitude() == 0) {
+      return new Vec(0, 0);
+    }
     return this.scale(1 / this.magnitude());
   }
 
