@@ -16,6 +16,7 @@ let separationOutput =
   document.querySelector<HTMLOutputElement>("#separation-output")!;
 let restartButton =
   document.querySelector<HTMLButtonElement>("#restart-button")!;
+let wrapButton = document.querySelector<HTMLButtonElement>("#wrap-button")!;
 
 const playground = new CanvasBoard(
   document.querySelector("#canvas-board")!,
@@ -23,11 +24,11 @@ const playground = new CanvasBoard(
   420
 );
 
-let flock = new Flock(playground, 100);
+let flock = new Flock(playground, 50);
 
 coheranceSlider.addEventListener("input", () => {
   coheranceOutput.textContent = coheranceSlider.value;
-  flock.COHERANCE = (0.0005 * coheranceSlider.valueAsNumber) / 50;
+  flock.COHERANCE = (0.0003 * coheranceSlider.valueAsNumber) / 50;
 });
 
 alignmentSlider.addEventListener("input", () => {
@@ -37,9 +38,13 @@ alignmentSlider.addEventListener("input", () => {
 
 separationSlider.addEventListener("input", () => {
   separationOutput.textContent = separationSlider.value;
-  flock.SEPARATION = (0.01 * separationSlider.valueAsNumber) / 50;
+  flock.SEPARATION = (0.005 * separationSlider.valueAsNumber) / 50;
 });
 
 restartButton.addEventListener("click", () => {
   flock.randomizeBoids();
+});
+
+wrapButton.addEventListener("click", () => {
+  flock.WRAP = !flock.WRAP;
 });
