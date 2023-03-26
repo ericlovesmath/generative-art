@@ -12,13 +12,13 @@ export class Flock extends CanvasObject {
 
   COHERANCE = 0.0003;
   ALIGNMENT = 0.05;
-  SEPARATION = 0.005;
+  SEPARATION = 0.0025;
 
   PERCEPTION = 70;
   THRESHOLD = 25;
 
   BORDER = 0.001;
-  WRAP = false;
+  WRAP = true;
 
   constructor(board: CanvasBoard, count: number) {
     super(board);

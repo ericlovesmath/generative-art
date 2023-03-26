@@ -2,29 +2,21 @@ import "./style.css";
 import { CanvasBoard } from "../lib/canvas";
 import { Flock } from "./objects/flock";
 
-let coheranceSlider =
-  document.querySelector<HTMLInputElement>("#coherance-slider")!;
-let coheranceOutput =
-  document.querySelector<HTMLOutputElement>("#coherance-output")!;
-let alignmentSlider =
-  document.querySelector<HTMLInputElement>("#alignment-slider")!;
-let alignmentOutput =
-  document.querySelector<HTMLOutputElement>("#alignment-output")!;
-let separationSlider =
-  document.querySelector<HTMLInputElement>("#separation-slider")!;
-let separationOutput =
-  document.querySelector<HTMLOutputElement>("#separation-output")!;
-let restartButton =
-  document.querySelector<HTMLButtonElement>("#restart-button")!;
+let coheranceSlider = document.querySelector<HTMLInputElement>("#cohere")!;
+let coheranceOutput = document.querySelector<HTMLOutputElement>("#cohere-out")!;
+let alignmentSlider = document.querySelector<HTMLInputElement>("#align")!;
+let alignmentOutput = document.querySelector<HTMLOutputElement>("#align-out")!;
+let separationSlider = document.querySelector<HTMLInputElement>("#sep")!;
+let separationOutput = document.querySelector<HTMLOutputElement>("#sep-out")!;
+let restartButton = document.querySelector<HTMLButtonElement>("#restart")!;
 let wrapButton = document.querySelector<HTMLButtonElement>("#wrap-button")!;
 
-const playground = new CanvasBoard(
-  document.querySelector("#canvas-board")!,
-  960,
-  420
+const playground = new CanvasBoard( document.querySelector("#canvas-board")!,
+  320,
+  320
 );
 
-let flock = new Flock(playground, 50);
+let flock = new Flock(playground, 30);
 
 coheranceSlider.addEventListener("input", () => {
   coheranceOutput.textContent = coheranceSlider.value;
@@ -38,7 +30,7 @@ alignmentSlider.addEventListener("input", () => {
 
 separationSlider.addEventListener("input", () => {
   separationOutput.textContent = separationSlider.value;
-  flock.SEPARATION = (0.005 * separationSlider.valueAsNumber) / 50;
+  flock.SEPARATION = (0.0025 * separationSlider.valueAsNumber) / 50;
 });
 
 restartButton.addEventListener("click", () => {

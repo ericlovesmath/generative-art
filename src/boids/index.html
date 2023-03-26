@@ -8,49 +8,34 @@
   </head>
 
   <body>
-    <header>Boids</header>
-    <canvas id="canvas-board"></canvas>
+    <header>Boids: Flocking Algorithm</header>
 
-    <form id="value-editor" autocomplete="off">
-      <div>
-        <label for="coherance-slider">Coherance:</label>
-        <input
-          type="range"
-          id="coherance-slider"
-          min="0"
-          max="100"
-          value="50"
-        />
-        <output id="coherance-output">50</output>
+    <div class="simulation">
+      <canvas id="canvas-board"></canvas>
+      <div class="controls">
+        <form id="value-editor" autocomplete="off">
+          <div>
+            <label for="cohere">Coherance:</label>
+            <input type="range" id="cohere" min="0" max="100" value="50" />
+            <output id="cohere-out">50</output>
+          </div>
+          <div>
+            <label for="align">Alignment:</label>
+            <input type="range" id="align" min="0" max="100" value="50" />
+            <output id="align-out">50</output>
+          </div>
+          <div>
+            <label for="sep">Separation:</label>
+            <input type="range" id="sep" min="0" max="100" value="50" />
+            <output id="sep-out">50</output>
+          </div>
+        </form>
+        <div class="button-wrapper">
+          <button id="restart">Restart</button>
+          <button id="wrap-button">Toggle Wrap</button>
+        </div>
       </div>
-
-      <div>
-        <label for="alignment-slider">Alignment:</label>
-        <input
-          type="range"
-          id="alignment-slider"
-          min="0"
-          max="100"
-          value="50"
-        />
-        <output id="alignment-output">50</output>
-      </div>
-
-      <div>
-        <label for="separation-slider">Separation:</label>
-        <input
-          type="range"
-          id="separation-slider"
-          min="0"
-          max="100"
-          value="50"
-        />
-        <output id="separation-output">50</output>
-      </div>
-    </form>
-
-    <button id="restart-button">Restart</button>
-    <button id="wrap-button">Toggle Wrap</button>
+    </div>
   </body>
 
   <script type="module" src="./main.ts"></script>
