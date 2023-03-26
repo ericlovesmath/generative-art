@@ -1,5 +1,7 @@
 :root {
   --light-gray: #cdcdcd;
+  --dark-gray: #333;
+  --white: #eee;
 }
 
 * {
@@ -8,36 +10,76 @@
 
 body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
   margin: 0;
   display: flex;
   flex-direction: column;
+  background-color: var(--white);
 }
 
 header {
   width: 100%;
-  padding: 1rem 0;
+  text-align: center;
+  padding: 0.5em 0;
   background: var(--light-gray);
   font-size: clamp(1rem, 2vw + 1rem, 4rem);
   font-weight: bold;
 }
 
-.simulation {
-  display: flex;
-  margin: 1em auto;
+section.chapter {
+  margin: 0.5em auto;
+  width: 500px;
 }
 
-.simulation > .controls {
+section.simulation {
+  display: flex;
   justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.simulation > .controls > * {
-  margin: 0.5em 1em;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: var(--dark-gray);
 }
 
 canvas {
   background: var(--light-gray);
-  border: 1px solid black;
+}
+
+section.simulation > .controls {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
+section.simulation > .controls > * {
+  margin: 0.5em 1em;
+}
+
+section.simulation > .controls > #value-editor > div {
+  margin: 0.5em 0;
+  display: flex;
+}
+
+section.simulation > .controls > #value-editor > div > input {
+  margin: 0 1em;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0;
+  background: var(--dark-gray);
+  color: var(--white);
+}
+
+footer > p {
+  margin: 0.5em 0;
+}
+
+a:link, a:visited {
+  color: var(--light-gray);
+  text-decoration: underline;
+}
+
+a:hover, a:active {
+  color: var(--white);
 }
