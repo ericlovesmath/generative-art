@@ -1,7 +1,7 @@
 import { Vec } from "../utils";
 import { CanvasBoard, CanvasObject, PeriodicDrawer } from "../canvas";
 
-/** CanvasObject representing a 2D circle */
+/** CanvasObject representing a 2D Square */
 abstract class Square extends CanvasObject {
   center: Vec;
   width: number;
@@ -45,7 +45,7 @@ abstract class Square extends CanvasObject {
   }
 }
 
-/** Circle CanvasObject that moves towards mouse */
+/** Draggable Square CanvasObject */
 export class DraggableSquare extends Square {
   animator: PeriodicDrawer;
   isDragging = false;
