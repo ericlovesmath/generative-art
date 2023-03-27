@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: clamp(0.5rem, 1vw + 1rem, 1.5rem);
+}
+
+p {
+  font-size: clamp(0.8rem, 1vw + 0.5rem, 1rem);
+}
+
 body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -27,12 +35,13 @@ header {
 
 section.chapter {
   margin: 0.5em auto;
-  width: 500px;
+  width: clamp(300px, 75vw, 500px);
 }
 
 section.simulation {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
   padding: 1em;
@@ -45,6 +54,7 @@ canvas {
 
 section.simulation > .controls {
   justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   background-color: var(--white);
@@ -54,12 +64,12 @@ section.simulation > .controls > * {
   margin: 0.5em 1em;
 }
 
-section.simulation > .controls > #value-editor > div {
+#value-editor > div {
   margin: 0.5em 0;
   display: flex;
 }
 
-section.simulation > .controls > #value-editor > div > input {
+#value-editor > div > input {
   margin: 0 1em;
 }
 
@@ -75,11 +85,13 @@ footer > p {
   margin: 0.5em 0;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: var(--light-gray);
   text-decoration: underline;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: var(--white);
 }
