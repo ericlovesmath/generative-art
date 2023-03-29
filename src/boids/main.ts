@@ -10,13 +10,13 @@ let separationSlider = document.querySelector<HTMLInputElement>("#sep")!;
 let separationOutput = document.querySelector<HTMLOutputElement>("#sep-out")!;
 let restartButton = document.querySelector<HTMLButtonElement>("#restart")!;
 let wrapButton = document.querySelector<HTMLButtonElement>("#wrap-button")!;
+let simCanvas = document.querySelector<HTMLCanvasElement>("#canvas-board")!;
 
-const playground = new CanvasBoard( document.querySelector("#canvas-board")!,
-  450,
-  450
-);
+const sim = new CanvasBoard(simCanvas, 450, 450);
+sim.canvas.style.width = `clamp(320px, 20vw + 250px, 450px)`;
+sim.canvas.style.height = `clamp(320px, 20vw + 250px, 450px)`;
 
-let flock = new Flock(playground, 50);
+let flock = new Flock(sim, 50);
 
 coheranceSlider.addEventListener("input", () => {
   coheranceOutput.textContent = coheranceSlider.value;

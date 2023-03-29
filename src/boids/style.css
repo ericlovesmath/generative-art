@@ -77,16 +77,14 @@ section.simulation > .controls > * {
   gap: 0.5em 1em;
 }
 
+/** Footer and Links */
+
 footer {
   width: 100%;
   text-align: center;
   padding: 0.5em 0;
   background: var(--dark-gray);
   color: var(--white);
-}
-
-footer > p {
-  margin: 0.5em 0;
 }
 
 a:link,
