@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <link rel="icon" type="image/x-icon" href="./favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boid Simulation</title>
   </head>
@@ -11,7 +11,7 @@
     <header>Boids: Flocking Algorithm</header>
 
     <section class="chapter">
-      <h1>BOIDS</h1>
+      <h1>Boids</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -27,21 +27,15 @@
       <canvas id="canvas-board"></canvas>
       <div class="controls">
         <form id="value-editor" autocomplete="off">
-          <div>
-            <label for="cohere">Coherance:</label>
-            <input type="range" id="cohere" min="0" max="100" value="50" />
-            <output id="cohere-out">50</output>
-          </div>
-          <div>
-            <label for="align">Alignment:</label>
-            <input type="range" id="align" min="0" max="100" value="50" />
-            <output id="align-out">50</output>
-          </div>
-          <div>
-            <label for="sep">Separation:</label>
-            <input type="range" id="sep" min="0" max="100" value="50" />
-            <output id="sep-out">50</output>
-          </div>
+          <label for="cohere">Coherance:</label>
+          <input type="range" id="cohere" min="0" max="100" value="50" />
+          <output id="cohere-out">50</output>
+          <label for="align">Alignment:</label>
+          <input type="range" id="align" min="0" max="100" value="50" />
+          <output id="align-out">50</output>
+          <label for="sep">Separation:</label>
+          <input type="range" id="sep" min="0" max="100" value="50" />
+          <output id="sep-out">50</output>
         </form>
         <div class="button-wrapper">
           <button id="restart">Restart</button>

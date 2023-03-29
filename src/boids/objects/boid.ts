@@ -5,7 +5,7 @@ export class Boid {
   vel: Vec;
   acc: Vec;
 
-  RAD = 4;
+  RAD = 6;
 
   constructor(pos: Vec, vel: Vec) {
     this.pos = pos;

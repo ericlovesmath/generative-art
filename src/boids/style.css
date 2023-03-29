@@ -2,6 +2,10 @@
   --light-gray: #cdcdcd;
   --dark-gray: #333;
   --white: #eee;
+
+  --fs-xlarge: clamp(3rem, 2vw + 2.5rem, 4rem);
+  --fs-large: clamp(2rem, 1.5vw + 1.5rem, 2.5rem);
+  --fs-medium: clamp(1rem, 1vw + 0.8rem, 1.5rem);
 }
 
 * {
@@ -9,11 +13,14 @@
 }
 
 h1 {
-  font-size: clamp(0.5rem, 1vw + 1rem, 1.5rem);
+  font-size: var(--fs-large);
 }
 
-p {
-  font-size: clamp(0.8rem, 1vw + 0.5rem, 1rem);
+p,
+label,
+output,
+button {
+  font-size: var(--fs-medium);
 }
 
 body {
@@ -27,15 +34,15 @@ body {
 header {
   width: 100%;
   text-align: center;
-  padding: 0.5em 0;
+  padding: 0.5em;
   background: var(--light-gray);
-  font-size: clamp(1rem, 2vw + 1rem, 4rem);
+  font-size: var(--fs-xlarge);
   font-weight: bold;
 }
 
 section.chapter {
   margin: 0.5em auto;
-  width: clamp(300px, 75vw, 500px);
+  width: clamp(300px, 70vw, 800px);
 }
 
 section.simulation {
@@ -64,13 +71,10 @@ section.simulation > .controls > * {
   margin: 0.5em 1em;
 }
 
-#value-editor > div {
-  margin: 0.5em 0;
-  display: flex;
-}
-
-#value-editor > div > input {
-  margin: 0 1em;
+#value-editor {
+  display: grid;
+  grid-template-columns: auto auto 4ch;
+  gap: 0.5em 1em;
 }
 
 footer {

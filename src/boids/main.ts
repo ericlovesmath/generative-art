@@ -12,11 +12,11 @@ let restartButton = document.querySelector<HTMLButtonElement>("#restart")!;
 let wrapButton = document.querySelector<HTMLButtonElement>("#wrap-button")!;
 
 const playground = new CanvasBoard( document.querySelector("#canvas-board")!,
-  320,
-  320
+  450,
+  450
 );
 
-let flock = new Flock(playground, 30);
+let flock = new Flock(playground, 50);
 
 coheranceSlider.addEventListener("input", () => {
   coheranceOutput.textContent = coheranceSlider.value;
