@@ -46,7 +46,7 @@ header {
 
 section.chapter {
   margin: 0.5em auto;
-  width: clamp(300px, 70vw, 800px);
+  width: clamp(300px, 80vw, 800px);
 }
 
 section.simulation {
