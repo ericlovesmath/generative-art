@@ -15,7 +15,7 @@ export class Flock extends CanvasObject {
   SEPARATION = 0.0025;
 
   PERCEPTION = 70;
-  THRESHOLD = 25;
+  THRESHOLD = 30;
 
   BORDER = 0.001;
   WRAP = true;
@@ -51,14 +51,10 @@ export class Flock extends CanvasObject {
   }
 
   /** Gets boids around boid within certain radius */
-  getLocalBoids(boid: Boid, rad: number): Boid[] {
-    let localBoids: Boid[] = [];
-    for (let curr of this.boids) {
-      if (boid != curr && boid.pos.distance(curr.pos) < rad) {
-        localBoids.push(curr);
-      }
-    }
-    return localBoids;
+  getLocalBoids(curr: Boid, rad: number): Boid[] {
+    return this.boids.filter(
+      (boid) => boid != curr && boid.pos.distance(curr.pos) < rad
+    );
   }
 
   /** Applies forces on boid and updates each accordingly */

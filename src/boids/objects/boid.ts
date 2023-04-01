@@ -5,7 +5,7 @@ export class Boid {
   vel: Vec;
   acc: Vec;
 
-  RAD = 7;
+  RAD = 6;
 
   constructor(pos: Vec, vel: Vec) {
     this.pos = pos;
@@ -53,7 +53,7 @@ export class Boid {
 
   /** Returns steering force to avoid border */
   borderForce(width: number, height: number): Vec {
-    let PAD = this.RAD * 20;
+    let PAD = this.RAD * 10;
     let steering = new Vec(0, 0);
     if (this.pos.x < PAD) {
       steering.x = 1

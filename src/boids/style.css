@@ -1,10 +1,12 @@
 :root {
-  --light-gray: #cdcdcd;
+  --black: #000;
   --dark-gray: #333;
+  --gray: #666;
+  --light-gray: #cdcdcd;
   --white: #eee;
 
   --fs-xlarge: clamp(3rem, 2vw + 2.5rem, 4rem);
-  --fs-large: clamp(2rem, 1.5vw + 1.5rem, 2.5rem);
+  --fs-large: clamp(1.5rem, 1.5vw + 1.3rem, 2.5rem);
   --fs-medium: clamp(1rem, 1vw + 0.8rem, 1.5rem);
 }
 
@@ -13,13 +15,15 @@
 }
 
 h1 {
+  margin-top: 0;
   font-size: var(--fs-large);
 }
 
 p,
 label,
 output,
-button {
+button,
+li {
   font-size: var(--fs-medium);
 }
 
@@ -50,7 +54,7 @@ section.simulation {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 2em;
   padding: 1em;
   background-color: var(--dark-gray);
 }
@@ -79,6 +83,16 @@ section.simulation > .controls > * {
 
 /** Footer and Links */
 
+a {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+a:hover,
+a:active {
+  color: var(--gray);
+}
+
 footer {
   width: 100%;
   text-align: center;
@@ -87,13 +101,10 @@ footer {
   color: var(--white);
 }
 
-a:link,
-a:visited {
+footer a {
   color: var(--light-gray);
-  text-decoration: underline;
 }
 
-a:hover,
-a:active {
+footer :is(a:hover, a:active) {
   color: var(--white);
 }

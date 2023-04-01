@@ -12,9 +12,9 @@ let restartButton = document.querySelector<HTMLButtonElement>("#restart")!;
 let wrapButton = document.querySelector<HTMLButtonElement>("#wrap-button")!;
 let simCanvas = document.querySelector<HTMLCanvasElement>("#canvas-board")!;
 
-const sim = new CanvasBoard(simCanvas, 450, 450);
-sim.canvas.style.width = `clamp(320px, 20vw + 250px, 450px)`;
-sim.canvas.style.height = `clamp(320px, 20vw + 250px, 450px)`;
+const sim = new CanvasBoard(simCanvas, 500, 500);
+sim.canvas.style.width = `clamp(320px, 20vw + 250px, 500px)`;
+sim.canvas.style.height = `clamp(320px, 20vw + 250px, 500px)`;
 
 let flock = new Flock(sim, 50);
 

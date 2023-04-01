@@ -11,15 +11,16 @@
     <header>Boids: Flocking Algorithm</header>
 
     <section class="chapter">
-      <h1>Boids</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        <b>Boids</b>, first described in
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://dl.acm.org/doi/10.1145/37402.37406"
+          >Craig Reynolds's paper,</a
+        >
+        are one of many models designed to simulate flocking behavior, such as
+        those in birds or fish.
       </p>
     </section>
 
@@ -27,7 +28,7 @@
       <canvas id="canvas-board"></canvas>
       <div class="controls">
         <form id="value-editor" autocomplete="off">
-          <label for="cohere">Coherance:</label>
+          <label for="cohere">Coherence:</label>
           <input type="range" id="cohere" min="0" max="100" value="50" />
           <output id="cohere-out">50</output>
           <label for="align">Alignment:</label>
@@ -45,24 +46,82 @@
     </section>
 
     <section class="chapter">
-      <h1>Further Reading</h1>
+      <h1>How do boids work?</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        A boid represents an individual in a flock. To treat this as a physics
+        simulation, each boid will have a position, velocity, and acceleration.
+        We will represent boids as a circle with a black velocity vector and red
+        acceleration vector.
       </p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        The movement of boids will be affected by the movement of the flock
+        itself. To simulate real flocking behavior, each boid will be affected
+        by its <b>local</b>
+        flock. This is because real animals are affected not by the movements of
+        the entire flock, but just those close to it. We will apply 3 primary
+        forces on each boid:
+      </p>
+      <ol>
+        <li><b>Cohesion:</b> Steer towards local flock</li>
+        <li><b>Alignment:</b> Move in the same direction as local flock</li>
+        <li><b>Separation:</b> Avoid crowding local flock</li>
+      </ol>
+      <p>We will discuss how each force is generated.</p>
+    </section>
+
+    <section class="chapter">
+      <h1>Applied Forces</h1>
+      <p>
+        For each frame of the simulation, we calculate the total vector of every
+        force applied on the boid, and clamp it such that there is a max force.
+        Then, we will treat that force as the instantaneous acceleration at that
+        given time as <em>F = ma</em> (treat m = 1).
+      </p>
+      <p>
+        For each type of force, we will scale that force by some constant, which
+        we can control using the sliders in our simulation. That way, we can
+        effectively see the effects of each force separately.
+      </p>
+      <p>
+        Each boid is given a perception radius to recognize the boids in its
+        local flock. The cohesive force is the vector pointing towards the
+        average mass of the local flock, which we can calculate by taking the
+        average position. Similarly, the alignment force is the vector
+        corresponding to the average velocity of the local flock.
+      </p>
+      <p>
+        The separation force considers a smaller crowding radius, about a third
+        of the perception radius. If we take the inverse of the square of the
+        distance between two boids, we will result in a much larger number the
+        closer the boids are. Using this fact, we take the average of this force
+        applied from each boid inside the crowding radius, resulting in a force
+        that pushes the boids away from each other if they are too close.
+      </p>
+    </section>
+
+    <section class="chapter">
+      <h1>Limitations and Continuations</h1>
+      <p>
+        The boids algorithm is slow as for each boid, we iterate over each boid
+        in its local flock, which is calculated once each frame. As we add more
+        boids, the simulation slows down quadratically. One solution to this is
+        to create regions in the simulation space, where each boid only has to
+        check if the boids in a neighboring region is in the local flock. One
+        popular way to implement this is using a quadtree data structure, making
+        smaller sections as boids become more clustered.
+      </p>
+      <p>
+        Once the base computational model is made, as the controls of boids is
+        purely done with forces, we can simply introduce other sources of forces
+        to improve the simulation. In our example, toggling wrap enabled forces
+        being introduced from the border, keeping the flock inside the canvas.
+      </p>
+      <p>
+        We could introduce a new boid called a predator, which follows the
+        flock. Then, the flock could be applied a force away from the predator
+        as it gets closer, simulating a flock of prey fleeing. Another example
+        is to add a barrier that emits a force away from it, creating an
+        obstacle.
       </p>
     </section>
 
